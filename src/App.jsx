@@ -1,13 +1,16 @@
 import React from "react";
 import "./App.css";
-import { Container } from "@material-ui/core";
+import { Container, Box } from "@mui/material";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavigationBar from "./components/navigation/NavigationBar";
 import HomePage from "./pages/home/HomePage";
 import LoginComponent from "./components/Registration/LoginComponent";
 import RegistrationComponent from "./components/Registration/RegistrationComponent";
-import FavoriteProducts from "./components/favorites/FavoriteProducts";
+import FavoriteProducts from "./pages/favorites/FavoriteProducts";
 import StorePage from "./pages/store/StorePage";
+import AboutPage from "./pages/about/AboutPage";
 import AdminPage from "./pages/admin/adminPage";
 import ShoppingCartPage from "./pages/shoppingCart/ShoppingCartPage";
 
@@ -26,30 +29,34 @@ import { useSelector } from "react-redux";
 // import { TextField } from "@material-ui/core";
 
 function App() {
-  const a = useSelector((state) => state);
-  console.log(a);
   return (
     <Router>
       <NavigationBar></NavigationBar>
-      <Container className="container">
-        <br />
-        <br />
+      <ToastContainer position="bottom-right" />
+      <br />
 
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginComponent />} />
-          <Route path="/register" element={<RegistrationComponent />} />
-          <Route path="/store" element={<StorePage />} />
-          <Route path="/cart" element={<ShoppingCartPage />}></Route>
-          <Route element={<FavoritesRoute />}>
-            <Route path="/favorites" element={<FavoriteProducts />} />
-          </Route>
-          <Route element={<AdminRoute />}>
-            <Route path="/admin" element={<AdminPage />} />
-          </Route>
-          <Route path="/*" element={<HomePage />} />
-        </Routes>
-      </Container>
+      <Box>
+        <Container className="container" maxWidth="lg">
+          <br />
+          <br />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginComponent />} />
+            <Route path="/register" element={<RegistrationComponent />} />
+            <Route path="/store" element={<StorePage />} />
+            <Route path="/about" element={<AboutPage />}></Route>
+            <Route path="/cart" element={<ShoppingCartPage />}></Route>
+
+            <Route element={<FavoritesRoute />}>
+              <Route path="/favorites" element={<FavoriteProducts />} />
+            </Route>
+            <Route element={<AdminRoute />}>
+              <Route path="/admin" element={<AdminPage />} />
+            </Route>
+            <Route path="/*" element={<HomePage />} />
+          </Routes>
+        </Container>
+      </Box>
     </Router>
   );
 }

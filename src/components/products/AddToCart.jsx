@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
-const AddToCart = () => {
+import { cartActions } from "../../store/ShoppingCart/shoppingCart";
+import { useDispatch } from "react-redux";
+
+const AddToCartBtn = (props) => {
+  const product = { ...props };
+  const dispatch = useDispatch();
+
   const handleAddToCart = (event) => {
     event.preventDefault();
+    dispatch(cartActions.addToCart(product));
   };
 
   return (
@@ -13,4 +20,5 @@ const AddToCart = () => {
   );
 };
 
-export default AddToCart;
+// export default AddToCartBtn;
+export default AddToCartBtn;

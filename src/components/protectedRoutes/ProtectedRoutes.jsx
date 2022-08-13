@@ -15,9 +15,10 @@ const FavoritesRoute = () => {
 
 const AdminRoute = () => {
   const token = localStorage.getItem("tokenKey");
+  console.log(token);
   const decoded = jwt_decode(token);
-  const isAdmin = decoded.biz;
-  console.log(decoded.isAdmin);
+  const isAdmin = decoded.isAdmin;
+  console.log(decoded);
 
   console.log(isAdmin);
 

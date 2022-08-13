@@ -1,0 +1,16 @@
+.wrapper {
+    position: relative;
+}
+
+.aboutPhoto {
+    max-width: 100%;
+}
+
+.header {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 4rem;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}

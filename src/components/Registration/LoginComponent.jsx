@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { TextField, Button, Typography } from "@material-ui/core";
+import { TextField, Button, Typography } from "@mui/material";
 
 import { authActions } from "../../store/auth";
 import { useDispatch, useSelector } from "react-redux";
 
 import axios from "axios";
 import { Link } from "react-router-dom";
+
+import { toast } from "react-toastify";
 
 const LoginComponent = () => {
   const dispatch = useDispatch();
@@ -26,21 +28,26 @@ const LoginComponent = () => {
     axios
       .post("/users/login", { email, password })
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data.token);
         dispatch(authActions.login());
 
+        setEmail("");
+        setPassword("");
         localStorage.setItem("tokenKey", res.data.token);
         localStorage.setItem("userEmail", email);
       })
-      .catch((err) => {
-        console.log(err.response);
+      .catch(() => {
         localStorage.clear();
         dispatch(authActions.logout());
+        toast.error("Incorrect Email or Password");
       });
   };
 
   return loggedInRedux ? (
     <div>
+      <br />
+      <br />
+      <br />
       <Typography variant="h4">You Are Logged In</Typography>
       <Button
         variant="contained"
@@ -55,12 +62,16 @@ const LoginComponent = () => {
     </div>
   ) : (
     <form>
+      <br />
+      <br />
+      <br />
       <TextField
         variant="outlined"
         type="text"
         label="Email"
         onChange={handleEmailChange}
       />
+      <br />
       <br />
       <TextField
         variant="outlined"
@@ -75,6 +86,7 @@ const LoginComponent = () => {
       </Button>
       <br />
       <br />
+
       <Typography>Dont have an account yet?</Typography>
       <Link to="/register">Register</Link>
     </form>

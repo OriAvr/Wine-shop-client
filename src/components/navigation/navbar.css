@@ -1,0 +1,111 @@
+:root {
+    /* --mainColor: #29335C;
+    --mainColorLight: #5767aa;
+    --secondaryColor: #DB2B39;
+    --textColor: #eee; */
+    /* --mainColor: #e9e8db; */
+    --mainColor: #6f2332;
+    --mainColorLight: #659fbc;
+    --secondaryColor: #c3073f;
+    --textColor: #e9e8db;
+}
+
+header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+    width: 100%;
+    /* height: 80px; */
+    padding: 2rem 2rem 0rem 2rem;
+    background-color: var(--mainColor);
+    color: var(--textColor);
+}
+
+.accountIcon {
+    position: absolute;
+    top: 1.4rem;
+    right: 5rem;
+}
+
+.cartIcon {
+    position: absolute;
+    top: 1.4rem;
+    right: 2rem;
+}
+
+nav a {
+    font-size: 20px;
+    margin: 0rem 2rem;
+    color: var(--textColor);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--secondaryColor);
+}
+
+header .nav-btn {
+
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--textColor);
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1.7rem;
+}
+
+@media only screen and (max-width: 1024px) {
+    header {}
+
+    header .nav-btn {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        background-color: var(--mainColor);
+        transition: 1s;
+        transform: translateY(-100vh);
+    }
+
+    header .responsive_nav {
+        transform: none;
+    }
+
+    .accountIcon {
+        top: 1.2rem;
+        right: 4.5rem;
+    }
+
+    .cartIcon {
+        top: 1.2rem;
+        right: 7rem;
+    }
+
+    nav .nav-close-btn {
+        position: absolute;
+        top: 1.9rem;
+        right: 2.2rem;
+    }
+
+    nav a {
+        font-size: 1.5rem;
+    }
+
+}

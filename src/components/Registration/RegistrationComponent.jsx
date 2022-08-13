@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  TextField,
-  Checkbox,
-  FormControlLabel,
-  Button,
-} from "@material-ui/core";
+import { TextField, Checkbox, FormControlLabel, Button } from "@mui/material";
 
 import { authActions } from "../../store/auth";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,18 +11,21 @@ const RegistrationComponent = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [biz, setBiz] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   function CheckboxFunction() {
     return (
       <FormControlLabel
         control={
           <Checkbox
-            checked={biz}
-            onChange={(e) => setBiz(e.target.checked)}
+            checked={isAdmin}
+            onChange={(e) => {
+              setIsAdmin(e.target.checked);
+              console.log(e.target.checked);
+            }}
             color="primary"
           />
         }
-        label="Business User"
+        label="Admin"
       />
     );
   }
@@ -36,7 +34,7 @@ const RegistrationComponent = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [adminPassword, setAdminPassword] = useState("1");
+  const [adminPassword, setAdminPassword] = useState("");
   const favorites = [];
 
   const emailRegex =
@@ -56,7 +54,6 @@ const RegistrationComponent = () => {
       setEmailError(false);
       setEmail(event.target.value);
     } else {
-      console.log("error email");
       setEmailError(true);
     }
   };
@@ -79,18 +76,19 @@ const RegistrationComponent = () => {
     setAdminPassword(event.target.value);
   };
 
-  const handleRegistration = (event) => {
+  const handleRegistration = async (event) => {
     if (event) event.preventDefault();
-    console.log({ email, name, password, biz });
+    console.log(adminPassword);
+    console.log(isAdmin);
 
-    axios
+    await axios
       .post("users/register", {
         email,
         name,
         password,
-        biz,
-        favorites,
+        isAdmin,
         adminPassword,
+        favorites,
       })
       .then((res) => {
         console.log(res.data);
@@ -103,12 +101,16 @@ const RegistrationComponent = () => {
 
   return (
     <form>
+      <br />
+      <br />
+      <br />
       <TextField
         variant="outlined"
         type="text"
         label="Name"
         onChange={handleNameChange}
       />
+      <br />
       <br />
       <TextField
         variant="outlined"
@@ -118,12 +120,14 @@ const RegistrationComponent = () => {
         error={emailError}
       />
       <br />
+      <br />
       <TextField
         variant="outlined"
         type="text"
         label="Password"
         onChange={handlePasswordChange}
       />
+      <br />
       <br />
       <TextField
         variant="outlined"
@@ -133,9 +137,11 @@ const RegistrationComponent = () => {
         error={confirmPasswordError}
       />
       <br />
+      <br />
       <CheckboxFunction />
       <br />
-      {biz ? (
+
+      {isAdmin ? (
         <TextField
           variant="outlined"
           type="text"

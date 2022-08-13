@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialAuthState = {
   loggedIn: false,
@@ -12,6 +13,7 @@ const authSlice = createSlice({
   reducers: {
     login(state) {
       state.loggedIn = true;
+      toast.success("Logged In");
     },
     logout(state) {
       state.loggedIn = false;

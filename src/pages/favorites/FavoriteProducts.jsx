@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ProductComponent from "../products/ProductComponent";
-import { Grid } from "@material-ui/core";
+import ProductComponent from "../../components/products/ProductComponent";
+import { Grid } from "@mui/material";
 
 const FavoriteProducts = () => {
   const userEmail = localStorage.getItem("userEmail");
@@ -10,6 +10,7 @@ const FavoriteProducts = () => {
   const [products, setProducts] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
+  //Get user's favorites
   useEffect(() => {
     axios
       .get(`users/favorites/${userEmail}`)
@@ -21,6 +22,7 @@ const FavoriteProducts = () => {
       });
   }, []);
 
+  //Get all products
   useEffect(() => {
     axios
       .get("/products/allproducts")
@@ -32,15 +34,17 @@ const FavoriteProducts = () => {
       });
   }, []);
 
+  //Check if products are loaded
   useEffect(() => {
     if (products.length > 0) {
       setLoaded(true);
     }
   }, [products]);
 
+  //Check if the product is a favorite
   const checkFavorite = (product) => {
     for (let i = 0; i < userFavorites.length; i++) {
-      if (product.sku === userFavorites[i]) return true;
+      if (product.wineSKU === userFavorites[i]) return true;
     }
   };
 
@@ -49,21 +53,26 @@ const FavoriteProducts = () => {
       return (
         <ProductComponent
           key={product._id}
-          name={product.name}
-          src={product.image}
-          year={product.year}
-          price={product.price}
-          description={product.description}
-          sku={product.sku}
+          name={product.wineName}
+          src={product.wineImage}
+          year={product.wineYear}
+          price={product.winePrice}
+          description={product.wineDescription}
+          sku={product.wineSKU}
         ></ProductComponent>
       );
     }
   };
 
   return (
-    <Grid container spacing={2}>
-      {!loaded ? <h1>Loading...</h1> : products.map(renderProducts)}
-    </Grid>
+    <div>
+      <br />
+      <br />
+      <br />
+      <Grid container spacing={2}>
+        {!loaded ? <h1>Loading...</h1> : products.map(renderProducts)}
+      </Grid>
+    </div>
   );
 };
 

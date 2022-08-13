@@ -1,6 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  /* background-color: #f6f6f6; */
+}
+
 .container {
   margin: auto;
-  width: 80vw;
+  width: 100%;
+  min-height: 100vh;
   padding-top: 5vh;
   text-align: center;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }

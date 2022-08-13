@@ -6,7 +6,7 @@ import {
   ListItem,
   ListItemText,
   makeStyles,
-} from "@material-ui/core";
+} from "@mui/material";
 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";

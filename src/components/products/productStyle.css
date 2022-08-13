@@ -2,25 +2,26 @@
 
 body {
     font-family: 'Muli', sans-serif;
-    background: #ddd;
 }
 
 .shell {
     padding: 80px 0;
 }
 
+
 .wsk-cp-product {
-    background: #fff;
+    background: #f1f0eb;
     padding: 15px;
+    /* max-width: 400px; */
     border-radius: 6px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     position: relative;
-    margin: 20px auto;
+    margin: 10px auto;
 }
 
 .wsk-cp-img {
     position: absolute;
-    top: 5px;
+    top: 20px;
     left: 50%;
     transform: translate(-50%);
     -webkit-transform: translate(-50%);
@@ -29,18 +30,18 @@ body {
     -o-transform: translate(-50%);
     -khtml-transform: translate(-50%);
     height: 50%;
-    padding: 15px;
+    /* padding: 15px; */
     transition: all 0.2s ease-in-out;
 }
 
 .wsk-cp-img img {
     width: 100%;
     transition: all 0.2s ease-in-out;
-    border-radius: 6px;
+
 }
 
 .wsk-cp-product:hover .wsk-cp-img {
-    top: -40px;
+    top: -30px;
 }
 
 /* .wsk-cp-product:hover .wsk-cp-img img {
@@ -48,17 +49,17 @@ body {
 } */
 
 .wsk-cp-text {
-    padding-top: 120%;
+    padding-top: 100%;
 }
 
 .wsk-cp-text .category {
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
-    padding: 5px;
-    margin-bottom: 45px;
+    padding: 15px;
+    margin-bottom: 30px;
     position: relative;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.7s ease-in-out;
 }
 
 .wsk-cp-text .category>* {
@@ -160,9 +161,8 @@ a.buy-btn {
     text-align: center;
     /* width: 35px;
     height: 35px; */
-    padding: 10px;
-    border-radius: 100%;
-    border: 1px solid #212121;
+    padding-right: 10px;
+
     transition: all 0.2s ease-in-out;
 }
 

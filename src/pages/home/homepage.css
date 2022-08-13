@@ -1,0 +1,81 @@
+.banner {
+    padding: 12em 0 16em 0;
+    text-align: center;
+    width: 100%;
+    background-image: url(https://images.unsplash.com/photo-1541971897566-308cf7ad0934?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
+}
+
+.border {
+    width: 60%;
+    margin: 0 auto;
+    height: 47px;
+    border: 2px solid #fff;
+    border-bottom: 0;
+}
+
+
+.banner h2 {
+    margin: 0;
+    font-size: 3em;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    padding: 0.5em 0 0 0;
+}
+
+.banner p {
+    color: #FFFFFF;
+    font-size: 1.3em;
+    font-weight: 400;
+    margin: 1em 0 0 0;
+    line-height: 2em;
+    letter-spacing: 2px;
+    padding: 0 0 2em 0;
+}
+
+.border-bottom {
+    border-top: 0;
+    border-bottom: 2px solid #fff !important;
+}
+
+@media only screen and (max-width: 480px) {
+    .banner {
+        padding: 2em 0 3em 0;
+        width: 100%;
+        box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.45);
+    }
+
+    .banner h2 {
+        font-size: 1.3em;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5em;
+        padding: 0.5em 0 0 0;
+    }
+
+    .banner p {
+        color: #FFFFFF;
+        font-size: 0.7em;
+        font-weight: lighter;
+        margin: 1em 0 0 0;
+        letter-spacing: 1px;
+        padding: 0.5em 0 1.5em 0;
+    }
+
+    .border {
+        width: 70%;
+        height: 17px;
+        border: 1px solid #fff;
+        border-bottom: 0;
+    }
+
+    .border-bottom {
+        border-top: 0;
+        border-bottom: 1px solid #fff !important;
+    }
+}
