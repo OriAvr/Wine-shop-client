@@ -13,7 +13,6 @@ const cartSlice = createSlice({
     addToCart(state, action) {
       const product = action.payload;
       toast.success("Added to cart");
-      // console.log(product.sku);
       // Check if Item is already in cart
       const inCart = state.cartProducts.find((item) =>
         item.product.sku === product.sku ? true : false

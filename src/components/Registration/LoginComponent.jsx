@@ -5,13 +5,10 @@ import { authActions } from "../../store/auth";
 import { useDispatch, useSelector } from "react-redux";
 
 import axios from "axios";
-import { Link } from "react-router-dom";
-
 import { toast } from "react-toastify";
 
 const LoginComponent = () => {
   const dispatch = useDispatch();
-  const loggedInRedux = useSelector((state) => state.auth.loggedIn);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,13 +25,11 @@ const LoginComponent = () => {
     axios
       .post("/users/login", { email, password })
       .then((res) => {
-        console.log(res.data.token);
-        dispatch(authActions.login());
-
         setEmail("");
         setPassword("");
         localStorage.setItem("tokenKey", res.data.token);
         localStorage.setItem("userEmail", email);
+        dispatch(authActions.login());
       })
       .catch(() => {
         localStorage.clear();
@@ -43,24 +38,7 @@ const LoginComponent = () => {
       });
   };
 
-  return loggedInRedux ? (
-    <div>
-      <br />
-      <br />
-      <br />
-      <Typography variant="h4">You Are Logged In</Typography>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => {
-          dispatch(authActions.logout());
-          localStorage.clear();
-        }}
-      >
-        Logout
-      </Button>
-    </div>
-  ) : (
+  return (
     <form>
       <br />
       <br />
@@ -86,9 +64,6 @@ const LoginComponent = () => {
       </Button>
       <br />
       <br />
-
-      <Typography>Dont have an account yet?</Typography>
-      <Link to="/register">Register</Link>
     </form>
   );
 };

@@ -10,7 +10,6 @@ const FavoriteProducts = () => {
   const [products, setProducts] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
-  //Get user's favorites
   useEffect(() => {
     axios
       .get(`users/favorites/${userEmail}`)
@@ -22,7 +21,6 @@ const FavoriteProducts = () => {
       });
   }, []);
 
-  //Get all products
   useEffect(() => {
     axios
       .get("/products/allproducts")
@@ -34,14 +32,12 @@ const FavoriteProducts = () => {
       });
   }, []);
 
-  //Check if products are loaded
   useEffect(() => {
     if (products.length > 0) {
       setLoaded(true);
     }
   }, [products]);
 
-  //Check if the product is a favorite
   const checkFavorite = (product) => {
     for (let i = 0; i < userFavorites.length; i++) {
       if (product.wineSKU === userFavorites[i]) return true;

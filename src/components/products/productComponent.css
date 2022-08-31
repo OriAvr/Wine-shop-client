@@ -12,7 +12,6 @@ body {
 .wsk-cp-product {
     background: #f1f0eb;
     padding: 15px;
-    /* max-width: 400px; */
     border-radius: 6px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     position: relative;
@@ -30,11 +29,10 @@ body {
     -o-transform: translate(-50%);
     -khtml-transform: translate(-50%);
     height: 50%;
-    /* padding: 15px; */
     transition: all 0.2s ease-in-out;
 }
 
-.wsk-cp-img img {
+.wsk-cp-img Image {
     width: 100%;
     transition: all 0.2s ease-in-out;
 
@@ -43,10 +41,6 @@ body {
 .wsk-cp-product:hover .wsk-cp-img {
     top: -30px;
 }
-
-/* .wsk-cp-product:hover .wsk-cp-img img {
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
-} */
 
 .wsk-cp-text {
     padding-top: 100%;
@@ -159,21 +153,10 @@ a.buy-btn {
     display: block;
     color: #212121;
     text-align: center;
-    /* width: 35px;
-    height: 35px; */
     padding-right: 10px;
 
     transition: all 0.2s ease-in-out;
 }
-
-/* a.buy-btn:hover,
-a.buy-btn:active,
-a.buy-btn:focus {
-    border-color: #FF9800;
-    background: #FF9800;
-    color: #fff;
-    text-decoration: none;
-} */
 
 .wsk-btn {
     display: inline-block;
@@ -181,8 +164,6 @@ a.buy-btn:focus {
     text-align: center;
     font-size: 18px;
     transition: all 0.2s ease-in-out;
-    /* border-color: #FF9800;
-    background: #FF9800; */
     padding: 12px 30px;
     border-radius: 27px;
     margin: 0 5px;
@@ -195,12 +176,6 @@ a.buy-btn:focus {
     color: #fff;
 }
 
-.red {
-    color: #F44336;
-    font-size: 22px;
-    display: inline-block;
-    margin: 0 5px;
-}
 
 @media screen and (max-width: 991px) {
     .wsk-cp-product {
@@ -211,14 +186,6 @@ a.buy-btn:focus {
         top: -10px;
     }
 
-    /* .wsk-cp-product .wsk-cp-img {
-        top: -40px;
-    } */
-
-    /* .wsk-cp-product .wsk-cp-img img {
-        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
-    } */
-
     .wsk-cp-product .wsk-cp-text .category>span {
         border-color: #ddd;
         box-shadow: none;
@@ -228,10 +195,4 @@ a.buy-btn:focus {
     .wsk-cp-product .wsk-cp-text .category {
         margin-top: 0px;
     }
-
-    /* a.buy-btn { */
-    /* border-color: #FF9800;
-        background: #FF9800; */
-    /* color: #fff; */
-    /* } */
 }

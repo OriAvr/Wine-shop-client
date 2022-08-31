@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { TextField, Checkbox, FormControlLabel, Button } from "@mui/material";
-
-import { authActions } from "../../store/auth";
-import { useDispatch, useSelector } from "react-redux";
-
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
@@ -34,13 +32,11 @@ const RegistrationComponent = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [adminPassword, setAdminPassword] = useState("");
+  const [adminPassword, setAdminPassword] = useState("a");
   const favorites = [];
 
   const emailRegex =
     /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/;
-
-  // const phoneRegex = /^0\d([\d]{0,1})([-]{0,1})\d{7}$/;
 
   const [emailError, setEmailError] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
@@ -78,11 +74,9 @@ const RegistrationComponent = () => {
 
   const handleRegistration = async (event) => {
     if (event) event.preventDefault();
-    console.log(adminPassword);
-    console.log(isAdmin);
 
     await axios
-      .post("users/register", {
+      .post("/users/register", {
         email,
         name,
         password,
@@ -91,11 +85,17 @@ const RegistrationComponent = () => {
         favorites,
       })
       .then((res) => {
-        console.log(res.data);
-        navigate("/login");
+        console.log(res.message);
+        toast.success(
+          "Registration completed successfully. Login to your account"
+        );
+        window.location.reload();
       })
       .catch((err) => {
-        console.log(err.response);
+        console.log(err.message);
+        toast.success(
+          "Registration failed. Password must contain: 1 lowercase letter, 1 uppercase letter, 4 digits and atleast one symbol. Please try again."
+        );
       });
   };
 
@@ -153,6 +153,7 @@ const RegistrationComponent = () => {
       )}
       <br />
       <br />
+
       <Button variant="contained" color="primary" onClick={handleRegistration}>
         Register
       </Button>

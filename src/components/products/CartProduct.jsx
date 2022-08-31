@@ -8,14 +8,12 @@ const CartProduct = (props) => {
       <br />
       <br />
       <br />
-      <Container>
-        <div className="cartProduct">
-          <img src={props.src} alt="product" className="productImg" />
-          <div className="productName">{props.name}</div>
-          <div className="productPrice">{props.price}</div>
-          <div className="productQty">{props.qty}</div>
-        </div>
-      </Container>
+      <div className="cartProduct">
+        <img src={props.src} alt="product" className="productImg" />
+        <div className="productName">{props.name}</div>
+        <div className="productPrice">{props.price}</div>
+        <div className="productQty">{props.qty}</div>
+      </div>
     </div>
   );
 };

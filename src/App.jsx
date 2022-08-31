@@ -6,8 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavigationBar from "./components/navigation/NavigationBar";
 import HomePage from "./pages/home/HomePage";
-import LoginComponent from "./components/Registration/LoginComponent";
-import RegistrationComponent from "./components/Registration/RegistrationComponent";
+import LoginPage from "./pages/login/LoginPage";
 import FavoriteProducts from "./pages/favorites/FavoriteProducts";
 import StorePage from "./pages/store/StorePage";
 import AboutPage from "./pages/about/AboutPage";
@@ -18,15 +17,6 @@ import {
   FavoritesRoute,
   AdminRoute,
 } from "./components/protectedRoutes/ProtectedRoutes";
-
-import { useSelector } from "react-redux";
-
-// import { Button } from "@material-ui/core";
-// import { ButtonGroup } from "@material-ui/core";
-// import SaveIcon from "@material-ui/icons/Save";
-// import DeleteIcon from "@material-ui/icons/Delete";
-// import { Checkbox } from "@material-ui/core";
-// import { TextField } from "@material-ui/core";
 
 function App() {
   return (
@@ -41,8 +31,7 @@ function App() {
           <br />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginComponent />} />
-            <Route path="/register" element={<RegistrationComponent />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/store" element={<StorePage />} />
             <Route path="/about" element={<AboutPage />}></Route>
             <Route path="/cart" element={<ShoppingCartPage />}></Route>

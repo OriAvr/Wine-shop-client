@@ -3,10 +3,6 @@ import axios from "axios";
 import { Checkbox, FormControlLabel } from "@mui/material";
 import { Grid } from "@mui/material";
 import ProductComponent from "../../components/products/ProductComponent";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-import Favorite from "@mui/icons-material/Favorite";
-import WineBarIcon from "@mui/icons-material/WineBar";
-import WineBarOutlinedIcon from "@mui/icons-material/WineBarOutlined";
 
 const StorePage = () => {
   const [products, setProducts] = useState([]);
@@ -15,8 +11,6 @@ const StorePage = () => {
 
   const [whiteChecked, setWhiteChecked] = useState(true);
   const [redChecked, setRedChecked] = useState(true);
-
-  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     axios
@@ -64,7 +58,6 @@ const StorePage = () => {
 
   return (
     <div>
-      {/* <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} /> */}
       <br />
       <br />
       <br />
@@ -97,7 +90,7 @@ const StorePage = () => {
         ) : whiteChecked && !redChecked ? (
           whiteWines.map(renderProducts)
         ) : (
-          <h1>Nope</h1>
+          <h3>Check The Releavant Boxes To See Items</h3>
         )}
       </Grid>
     </div>

@@ -65,7 +65,7 @@ const HomePage = () => {
           endIcon={<ChevronRightIcon />}
           sx={{ color: "#950841" }}
         >
-          View Shop
+          View Store
         </Button>
       </Link>
       <br />

@@ -7,10 +7,31 @@
 }
 
 .header {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
+    position: relative;
+    bottom: 5.5rem;
     font-size: 4rem;
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+.aboutPageText {
+    position: relative;
+    margin: 0 auto;
+    width: 50%;
+    height: 50vh;
+    font-size: 1.8rem;
+}
+
+@media only screen and (max-width: 1024px) {
+    .header {
+        font-size: 1.7rem;
+        bottom: 2.5rem;
+    }
+
+    .aboutPageText {
+        position: relative;
+        height: 50vh;
+        width: 90%;
+        font-size: 1.5rem;
+    }
 }

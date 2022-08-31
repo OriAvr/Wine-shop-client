@@ -52,8 +52,7 @@ const AdminPage = () => {
         toast.success("Added Product");
       })
       .catch((err) => {
-        console.log(err.response);
-        toast.warn("Add Product Failed");
+        toast.warn(`${err.response.data}`);
       });
   };
 
@@ -91,25 +90,33 @@ const AdminPage = () => {
       <br />
       <br />
       <br />
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={6}>
+      <h1>Add a Product</h1>
+      <Grid container className="addProductWrapper">
+        <Grid item xs={12} sm={7} md={7}>
           <TextField
             variant="outlined"
             label="Wine Name"
             onChange={handleName}
             helperText="Minimum 2 letters"
+            sx={{
+              width: { sm: 200, md: 400 },
+            }}
           ></TextField>
-          <br />
-          <br />
-          {/* SELECT SELECT SELECT SELECT*/}
+
           <FormControl>
-            <InputLabel id="demo-simple-select-label">Wine Type</InputLabel>
+            <InputLabel id="demo-simple-select-label">Type</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={wineType}
               label="Age"
               onChange={handleType}
+              sx={{
+                width: { sm: 200, md: 100 },
+              }}
+              MenuProps={{
+                disableScrollLock: true,
+              }}
             >
               <MenuItem value={"Red"}>White</MenuItem>
               <MenuItem value={"White"}>Red</MenuItem>
@@ -122,6 +129,12 @@ const AdminPage = () => {
             label="Wine Description"
             onChange={handleDescription}
             helperText="Minimum 10 letters"
+            sx={{
+              width: { sm: 200, md: 500 },
+              "& .MuiInputBase-root": {
+                height: 100,
+              },
+            }}
           ></TextField>
           <br />
           <br />
@@ -130,14 +143,19 @@ const AdminPage = () => {
             label="Winery"
             onChange={handleWinery}
             helperText="Minimum 2 letters"
+            sx={{
+              width: { sm: 200, md: 250 },
+            }}
           ></TextField>
-          <br />
-          <br />
+
           <TextField
             variant="outlined"
             label="Wine's Year"
             onChange={handleYear}
             helperText="Between 1900-2022"
+            sx={{
+              width: { sm: 200, md: 250 },
+            }}
           ></TextField>
           <br />
           <br />
@@ -145,14 +163,19 @@ const AdminPage = () => {
             variant="outlined"
             label="Wine's Price"
             onChange={handlePrice}
+            sx={{
+              width: { sm: 200, md: 250 },
+            }}
           ></TextField>
-          <br />
-          <br />
+
           <TextField
             variant="outlined"
             label="Wine's Stock"
             onChange={handleStock}
             helperText="Number of units in stock"
+            sx={{
+              width: { sm: 200, md: 250 },
+            }}
           ></TextField>
           <br />
           <br />
@@ -160,18 +183,26 @@ const AdminPage = () => {
             variant="outlined"
             label="Wine's Image"
             onChange={handleImage}
+            sx={{
+              width: { sm: 200, md: 250 },
+            }}
           ></TextField>
-          <br />
-          <br />
           <TextField
             variant="outlined"
             label="Wine's SKU"
             onChange={handleSKU}
             helperText="Minimum 10 characters"
+            sx={{
+              width: { sm: 200, md: 250 },
+            }}
           ></TextField>
           <br />
           <br />
-          <Button variant="outlined" onClick={handleAddProduct}>
+          <Button
+            color="secondary"
+            variant="contained"
+            onClick={handleAddProduct}
+          >
             Add Product
           </Button>
         </Grid>

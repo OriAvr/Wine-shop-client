@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { useSelector } from "react-redux";
-import { Grid } from "@mui/material";
 import CartProduct from "../../components/products/CartProduct";
 
 const ShoppingCartPage = () => {
@@ -12,7 +10,7 @@ const ShoppingCartPage = () => {
     if (item) {
       return (
         <CartProduct
-          key={item.src}
+          key={item.product.sku}
           src={item.product.src}
           name={item.product.name}
           price={item.product.price}
